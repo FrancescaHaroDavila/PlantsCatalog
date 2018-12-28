@@ -26,10 +26,26 @@ class PlantViewController: UIViewController {
       if let destinationVC = segue.destination as? PlantInfoViewController {
         if let indexPath = tableView.indexPathForSelectedRow {
           let plant = self.allPlants[indexPath.row]
-     
+            destinationVC.plant = plant
+          
         }
       }
     }
+  }
+}
+
+extension PlantViewController: UITableViewDataSource, UITableViewDelegate {
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: self.PlantTableViewCellIdentifier, for: indexPath) as? PlantTableViewCell else {
+      return UITableViewCell()
+    }
+    let plant = self.allPlants[indexPath.row]
+    cell.nameLabel.text = plant.name
+    return cell
+  }
+  
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return self.allPlants.count
   }
 }
 

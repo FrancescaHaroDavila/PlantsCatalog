@@ -294,6 +294,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8Rp-MM-1yi"/>
                     </view>
+                    <connections>
+                        <outlet property="daysToHarvestLabel" destination="N2I-Ye-nR1" id="jIz-f6-E5V"/>
+                        <outlet property="diameterLabel" destination="csj-tw-ES7" id="tCy-Kt-349"/>
+                        <outlet property="fertilizerLabel" destination="2hb-c5-9VS" id="Bu3-DC-Jo9"/>
+                        <outlet property="imageView" destination="ad4-k4-UQv" id="moZ-ha-MQs"/>
+                        <outlet property="nameLabel" destination="f5T-Hs-rAU" id="7Wv-BT-gDa"/>
+                        <outlet property="reminderDaysLabel" destination="eQt-DD-OYf" id="NaT-ZD-Zq1"/>
+                        <outlet property="reminderMessageLabel" destination="gbB-a6-BJX" id="s0g-HK-Dtf"/>
+                        <outlet property="slugsProneLabel" destination="Xlj-Sv-IRY" id="1sZ-Ke-29Q"/>
+                        <outlet property="textView" destination="3Vx-dC-phM" id="d0d-l0-Nwr"/>
+                        <outlet property="varietiesLabel" destination="yCZ-gY-1Cv" id="A8g-pF-epU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZxB-hG-SI6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

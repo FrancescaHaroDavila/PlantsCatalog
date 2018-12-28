@@ -10,23 +10,36 @@ import UIKit
 
 class PlantInfoViewController: UIViewController {
 
+  @IBOutlet weak var nameLabel: UILabel!
+  @IBOutlet weak var imageView: UIImageView!
+  @IBOutlet weak var textView: UITextView!
+  @IBOutlet weak var daysToHarvestLabel: UILabel!
+  @IBOutlet weak var fertilizerLabel: UILabel!
+  @IBOutlet weak var slugsProneLabel: UILabel!
+  @IBOutlet weak var diameterLabel: UILabel!
+  @IBOutlet weak var varietiesLabel: UILabel!
+  @IBOutlet weak var reminderMessageLabel: UILabel!
+  @IBOutlet weak var reminderDaysLabel: UILabel!
+  var plant: Plant?
   
+  //MARK: - Lifecycle
   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    setPlantData()
+  }
+  
+  //MARK: - Private
+  
+  func setPlantData(){
+    self.nameLabel.text = plant?.name
+    self.textView.text = plant?.text
+//    self.daysToHarvestLabel.text = plant?.daysToHarvest
+//    self.fertilizerLabel.text = plant?.needsFertilizer
+//    self.slugsProneLabel.text = plant?.slugsProne
+//    self.diameterLabel.text = plant?.diameter
+//    self.varietiesLabel.text = plant?.varieties
+//    self.reminderDaysLabel.text = plant
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+  }
 }
