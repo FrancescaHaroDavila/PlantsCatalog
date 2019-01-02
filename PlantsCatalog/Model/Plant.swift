@@ -14,43 +14,38 @@ class Plant: NSObject {
   
   // MARK: -Properties
   //var image:UIImage? {
-    //return UIImage(named: self.image)}
+  //return UIImage(named: self.image)}
   var name = ""
   var daysToHarvest = 0
   var diameter = 0
   var varieties: [String] = []
-  struct reminders {
-    var days: Int?
-    var message: String?
-  }
   var needsFertilizer = true
   var slugsProne = true
   var text = ""
-  
-  init(jsonObject: JSON) {
-//    super.init()
-//    self.name = json["name"] ?? ""
-//    self.text = json["text"] ?? ""
-//    //self.image = json[""] ?? ""
-//    if let daysToHarvestStr = json["daysToHarvest"],
-//      let daysToHarvest = Int(daysToHarvestStr) {
-//      self.daysToHarvest = daysToHarvest  }
-//    if let diameterStr = json["diameter"],
-//      let diameter = Int(diameterStr) {
-//      self.diameter = diameter  }
-//    if let diameterStr = json["diameter"],
-//      let diameter = Int(diameterStr) {
-//      self.diameter = diameter  }
-//    if let varieties = jsonObject["varieties"].Arr {
-//      self.price = Double(price) ?? 0.0
+    
+  init(jsonObject : JSON) {
+
     if let name = jsonObject["name"].string {
       self.name = name
     }
-    if let varieties = jsonObject["varieties"].arrayObject {
-      self.varieties = varieties as! [String]
+    if let daysToHarvest = jsonObject["daysToHarvest"].int {
+      self.daysToHarvest = daysToHarvest
+    }
+    if let diameter = jsonObject["diameter"].int {
+      self.diameter = diameter
+    }
+    for variety in jsonObject["varieties"].array! {
+      varieties.append(variety.stringValue)
+    }
+    if let needsFertilizer = jsonObject["needsFertilizer"].bool {
+      self.needsFertilizer = needsFertilizer
+    }
+    if let slugsProne = jsonObject["slugsProne"].bool {
+      self.slugsProne = slugsProne
+    }
+    if let text = jsonObject["text"].string {
+      self.text = text
     }
     
-
-    }
-  
+  }
 }

@@ -18,8 +18,6 @@ class PlantInfoViewController: UIViewController {
   @IBOutlet weak var slugsProneLabel: UILabel!
   @IBOutlet weak var diameterLabel: UILabel!
   @IBOutlet weak var varietiesLabel: UILabel!
-  @IBOutlet weak var reminderMessageLabel: UILabel!
-  @IBOutlet weak var reminderDaysLabel: UILabel!
   var plant: Plant?
   
   //MARK: - Lifecycle
@@ -34,12 +32,25 @@ class PlantInfoViewController: UIViewController {
   func setPlantData(){
     self.nameLabel.text = plant?.name
     self.textView.text = plant?.text
-//    self.daysToHarvestLabel.text = plant?.daysToHarvest
-//    self.fertilizerLabel.text = plant?.needsFertilizer
-//    self.slugsProneLabel.text = plant?.slugsProne
-//    self.diameterLabel.text = plant?.diameter
-//    self.varietiesLabel.text = plant?.varieties
-//    self.reminderDaysLabel.text = plant
+    self.daysToHarvestLabel.text = plant?.daysToHarvest.description
+    if plant?.needsFertilizer == true {
+      self.fertilizerLabel.text = "Recommended"
+    } else{
+      self.fertilizerLabel.text = "Not needed"
+    }
+    if plant?.slugsProne == true {
+      self.slugsProneLabel.text = "Yes"
+    } else{
+      self.slugsProneLabel.text = "No"
+    }
+    self.diameterLabel.text = (plant?.diameter.description)! + " cm"
     
+    for variety in plant?.varieties ?? [] {
+      if varietiesLabel.text != ""{
+      self.varietiesLabel.text = (self.varietiesLabel.text ?? "") + ", " + variety
+      } else {
+        varietiesLabel.text = variety
+      }
+    }
   }
 }

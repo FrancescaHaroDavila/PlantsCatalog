@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class PlantViewController: UIViewController {
+  
   let PlantTableViewCellIdentifier = "PlantTableViewCell"
   let PlantInfoViewControllerIdentifier = "PlantInfoViewController"
   let SegueIdentifier = "PlantTableViewCellToPlantInfoViewController"
